@@ -34,8 +34,10 @@ new Chart(ctx, {
   data: {
   labels: days,
   datasets: [{
-    label: 'LAI',
+    label: 'LA',
     data: LAIs,
+    backgroundColor: 'rgb(50, 205, 100)',
+    borderColor: 'rgb(50, 205, 100)',
     borderWidth: 1
   }]
   },
