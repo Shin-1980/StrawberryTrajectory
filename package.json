@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "chart.js": "^4.4.2",
+    "react-chartjs-2": "^5.2.0",
+    "three": "^0.162.0"
+  },
+  "scripts": {
+    "start": "lite-server"
+  },
+  "devDependencies": {
+    "lite-server": "^2.6.1",
+    "vite": "^5.1.5"
+  }
+}

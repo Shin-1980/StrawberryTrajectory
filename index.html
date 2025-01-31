@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Line Chart Example</title>
+		<script src="import.js"></script>		
+	</head>
+	<body>
+		<div>
+			<canvas id="myChart" onmousemove="mouseMove()" style="width: 421px; height: 70px;"></canvas>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+		<script type="module" src="chart.js"></script>
+
+		<input type="button" value="v_X" onclick="buttonVXClick()">
+		<input type="button" value="v_Y" onclick="buttonVYClick()">
+		<input type="button" value="v_Z" onclick="buttonVZClick()">
+
+		<div id="output"></div>
+
+		<script type="text/javascript">
+
+			let mycanvas = document.getElementById('myChart');
+			mycanvas.addEventListener('mousemove', mouseMove);
+
+			var prevGlobalState = 0;
+			var posX = 0;
+			var posY = 0;
+
+			function buttonVXClick(){
+				isWaitingToChangeViewX = true
+			}
+
+			function buttonVYClick(){
+				isWaitingToChangeViewY = true
+			}
+
+			function buttonVZClick(){
+				isWaitingToChangeViewZ = true
+			}
+
+			function updateGlobalState(event) {
+
+				var canvas = document.getElementById('myChart');
+				const width = canvas.scrollWidth;
+				const pictNum = 14
+				const rezolution = width / pictNum;
+				const offset = 40;
+
+				for (i=0; i<pictNum; i++) {
+					if (posX < (offset + rezolution * i + rezolution * 0.5))
+					{
+						globalState = i
+						break;
+					}
+				}
+
+			}
+
+			function mouseMove(event){
+				
+				posX = event.screenX
+				posY = event.screenY
+
+				updateGlobalState()
+
+				if (prevGlobalState != globalState)
+				{
+					prevGlobalState = globalState
+					isWaitingToBeReplaced = true
+
+					if (myChart) {
+						myChart.destroy();
+					}
+				} 
+			}
+
+		</script>
+
+		<script type="module" src="/main.js"></script>
+	
+	</body>
+</html>
