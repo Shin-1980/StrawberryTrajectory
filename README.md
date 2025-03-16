@@ -8,7 +8,7 @@ This app visualizes plant growth using three-dimensional models that dynamically
 
 This behaviour can be achieved by switching between three-dimensional models stored in this repository.
 
-[![Plant Growth Trajectory](https://img.youtube.com/vi/TkWRMIl-W7w/0.jpg)](https://www.youtube.com/watch?v=TkWRMIl-W7w)
+[![Plant Growth Trajectory](https://img.youtube.com/vi/i3Br8mIPQIU/0.jpg)](https://www.youtube.com/watch?v=i3Br8mIPQIU)
 
 Three-dimensional models were basically taken at different times to capture the plant growth, resulting in varying frame origins. Because of this, adjustments are needed to shift the models accordingly to ensure alignment.
 
