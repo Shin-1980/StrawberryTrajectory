@@ -31,20 +31,20 @@ class particlesInfo {
 }
 
 var json_substrate_hy1 = `[
-    { "url": "./garden/segment/2024_02_16.ply"},
-    { "url": "./garden/segment/2024_02_17.ply"},
-    { "url": "./garden/segment/2024_02_18.ply"},
-    { "url": "./garden/segment/2024_02_19.ply"},
-    { "url": "./garden/segment/2024_02_20.ply"},
-    { "url": "./garden/segment/2024_02_24.ply"},
-    { "url": "./garden/segment/2024_03_04.ply"},
-    { "url": "./garden/segment/2024_03_05.ply"},
-    { "url": "./garden/segment/2024_03_06.ply"},
-    { "url": "./garden/segment/2024_03_07.ply"},
-    { "url": "./garden/segment/2024_03_08.ply"},
-    { "url": "./garden/segment/2024_03_09.ply"},
-    { "url": "./garden/segment/2024_03_10.ply"},
-    { "url": "./garden/segment/2024_03_11.ply"}
+    { "url": "./2024_02_16.ply"},
+    { "url": "./2024_02_17.ply"},
+    { "url": "./2024_02_18.ply"},
+    { "url": "./2024_02_19.ply"},
+    { "url": "./2024_02_20.ply"},
+    { "url": "./2024_02_24.ply"},
+    { "url": "./2024_03_04.ply"},
+    { "url": "./2024_03_05.ply"},
+    { "url": "./2024_03_06.ply"},
+    { "url": "./2024_03_07.ply"},
+    { "url": "./2024_03_08.ply"},
+    { "url": "./2024_03_09.ply"},
+    { "url": "./2024_03_10.ply"},
+    { "url": "./2024_03_11.ply"}
 ]`;
 
 const fileLists = JSON.parse(json_substrate_hy1);
@@ -95,6 +95,8 @@ for (let i = 0; i < fileLists.length; i++){
     plyLoader.load(fileLists[i].url, (geometry) => { 
         
         particleInfoLists.push(new particlesInfo(i,fileLists[i].url,new THREE.Points(geometry, material)))
+
+        console.log(fileLists[i])
 
         if (i == 0) {
             for (let j = 0; j < fileLists.length; j++) {
@@ -162,6 +164,7 @@ function changeMode() {
     {
         if (globalState == particleInfoLists[i].index)
         {
+            console.log(particleInfoLists[i])
             targetParticles = particleInfoLists[i].particle
             break;
         }
